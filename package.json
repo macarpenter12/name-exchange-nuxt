@@ -1,0 +1,19 @@
+{
+  "name": "name-exchange",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt --port 3001",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "core-js": "^3.6.5",
+    "jquery": "^3.5.1",
+    "nuxt": "^2.14.5"
+  },
+  "devDependencies": {}
+}
