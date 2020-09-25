@@ -59,4 +59,15 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+
+.component-card {
+  display: flex;
+  flex-flow: column;
+  min-width: 30%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px;
+  box-shadow: 5px 5px 5px gray;
+}
 </style>

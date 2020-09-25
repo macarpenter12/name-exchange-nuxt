@@ -2,7 +2,7 @@
   <div class='start'>
     <h2>Enter your family name.</h2>
     <input v-model='familyName'>
-    <nuxt-link :to="'/home/' + familyName"><button>Nuxt button family</button></nuxt-link>
+    <nuxt-link :to="'/' + familyName"><button>Nuxt button family</button></nuxt-link>
   </div>
 </template>
 

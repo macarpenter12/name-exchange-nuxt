@@ -34,19 +34,7 @@ export default {
     family() {
       return this.$store.state.family;
     }
-  },
-  // asyncData(context) {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve({
-  //         family: {
-  //           name: 'test',
-  //           members: [{ name: 'johnny' }, { name: 'susan' }, { name: 'mary'}]
-  //         }
-  //       });
-  //     }, 1500);
-  //   });
-  // }
+  }
 }
 </script>
 
@@ -56,17 +44,6 @@ export default {
   flex-flow: row;
   align-items: center;
   justify-content: center;
-}
-
-.component-card {
-  display: flex;
-  flex-flow: column;
-  min-width: 30%;
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 16px;
-  box-shadow: 5px 5px 5px gray;
 }
 </style>
 
