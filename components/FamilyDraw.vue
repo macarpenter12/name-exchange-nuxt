@@ -6,3 +6,17 @@
   <button>Draw names</button>
 </div>
 </template>
+
+<script>
+export default {
+  
+}
+</script>
+
+<style scoped>
+.family-draw {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+</style>

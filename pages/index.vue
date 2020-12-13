@@ -11,6 +11,10 @@ import Start from '@/components/Start';
 export default {
   components: {
     Start
+  },
+  transition: {
+    name: 'page-fade',
+    mode: 'out-in'
   }
 }
 </script>

@@ -1,0 +1,62 @@
+/* Content */
+
+input, select {
+  align-self: center;
+  max-width: 80%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+button {
+  align-self: center;
+  width: fit-content;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  transition: .2s;
+}
+
+button:hover {
+  box-shadow: 2px 2px 5px gray;
+}
+
+ul {
+  margin: 0px;
+  padding: 8px 0px;
+  list-style-type: none;
+}
+
+li {
+  text-align: center;
+}
+
+hr {
+  margin-top: 8px;
+}
+
+.component-card {
+  display: flex;
+  flex-flow: column;
+  min-width: 30%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+/* Transition */
+
+.page-fade-enter-active, .page-fade-leave-active {
+  transition: all .5s ease;
+}
+
+.page-fade-enter {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+.page-fade-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}

@@ -18,20 +18,21 @@ export const mutations = {
     });
   },
   commitRestriction(state, payload) {
-    for (let i = 0; i < state.restrictions.length; i++) {
-      if (state.restrictions[i].giver === payload.restriction.giver &&
-          state.restrictions[i].recipient === payload.restriction.recipient) {
-        return;
-      }
+    if (!restrictionExists(payload.restriction)) {
+      state.restrictions.push(payload.restriction);
     }
-
-    state.restrictions.push(payload.restriction);
   }
 };
 
 export const actions = {
   addMember(context, payload) {
     context.commit('commitMember', payload);
+    context.commit('commitRestriction', {
+      restriction: {
+        giver: payload.member.name,
+        recipient: payload.member.name
+      }
+    })
   },
   addRestriction(context, payload) {
     if (payload.restriction.giver.length < 1 || payload.restriction.recipient.length < 1) {
@@ -44,4 +45,14 @@ export const actions = {
   //   let loadedFamily = await axios.get('/family/' + payload.familyName);
   //   context.commit('setFamily', { family: loadedFamily });
   // }
+}
+
+function restrictionExists(newRestriction) {
+  for (let i = 0; i < state.restrictions.length; i++) {
+    if (state.restrictions[i].giver === newRestriction.giver &&
+        state.restrictions[i].recipient === newRestriction.recipient) {
+      return true;
+    }
+  }
+  return false;
 }
