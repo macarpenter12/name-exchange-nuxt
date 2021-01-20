@@ -1,4 +1,5 @@
-# name-exchange
+The Nuxt app for the Name Exchange project. To be used with the server (see <a href=https://github.com/macarpenter12/name-exchange-server>github.com/macarpenter12/name-exchange-server</a>)
+
 
 ## Build Setup
 
