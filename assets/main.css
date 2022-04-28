@@ -3,15 +3,13 @@
 input, select {
   align-self: center;
   max-width: 80%;
-  border: 1px solid black;
+  border: 1px solid gray;
   border-radius: 4px;
 }
 
 button {
   align-self: center;
   width: fit-content;
-  margin-top: 16px;
-  margin-bottom: 12px;
   border-radius: 4px;
   transition: .2s;
 }
@@ -38,7 +36,7 @@ hr {
   display: flex;
   flex-flow: column;
   min-width: 30%;
-  border: 1px solid black;
+  border: 1px solid gray;
   border-radius: 8px;
   padding: 20px;
   margin: 16px;

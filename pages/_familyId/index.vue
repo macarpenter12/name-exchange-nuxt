@@ -2,20 +2,17 @@
 <div>
   <div class='family-home-row'>
     <div class='component-card'>
-      <FamilyMembers 
-        :family='family' />
+      <FamilyMembers />
     </div>
 
     <div class='component-card'>
-      <FamilyRestrictions 
-        :family='family' />
+      <FamilyRestrictions />
     </div>
   </div>
 
   <div class='family-home-row'>
     <div class='component-card'>
-      <FamilyDraw
-        :family='family' />
+      <FamilyDraw />
     </div>
   </div>
 </div>
@@ -29,17 +26,15 @@ export default {
   components: {
     FamilyMembers,
     FamilyRestrictions,
-    FamilyDraw
+    FamilyDraw,
   },
-  computed: {
-    family() {
-      return this.$store.state.family;
-    }
+  created() {
+    this.$store.dispatch('family/loadFamily', this.$route.params.familyId);
   },
   transition: {
     name: 'page-fade',
     mode: 'out-in'
-  }
+  },
 }
 </script>
 

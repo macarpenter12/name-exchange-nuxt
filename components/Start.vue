@@ -1,8 +1,8 @@
 <template>
   <div class='start'>
-    <h2>Enter your family name.</h2>
-    <input v-model='familyName'>
-    <nuxt-link :to="'/' + familyName"><button>Nuxt button family</button></nuxt-link>
+    <h2>Enter your family code.</h2>
+    <input v-model='familyId'>
+    <nuxt-link :to="'/' + familyId"><button>Start</button></nuxt-link>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      familyName: ''
+      familyId: ''
     }
   }
 }

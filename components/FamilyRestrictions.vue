@@ -29,12 +29,11 @@
 
 <script>
 export default {
-  props: ['family'],
   data: function() {
     return {
       restrictionGiver: '',
       restrictionRecipient: ''
-    }
+    };
   },
   methods: {
     addRestriction() {
@@ -44,8 +43,13 @@ export default {
           recipient: this.restrictionRecipient
         }
       });
+    },
+  },
+  computed: {
+    family() {
+      return this.$store.state.family;
     }
-  }
+  },
 }
 </script>
 

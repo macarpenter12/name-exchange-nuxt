@@ -32,9 +32,21 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    host: 'localhost',
+    port: '3000',
+    prefix: '/api',
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+    }
   }
 }
