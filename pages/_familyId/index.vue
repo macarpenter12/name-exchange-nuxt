@@ -1,48 +1,51 @@
 <template>
-<div>
-  <div class='family-home-row'>
-    <div class='component-card'>
-      <FamilyMembers />
-    </div>
+  <b-container>
+    <b-row>
+      <h1>{{ this.$store.state.family.family.name }} family</h1>
+    </b-row>
 
-    <div class='component-card'>
-      <FamilyRestrictions />
-    </div>
-  </div>
+    <b-row>
+      <b-col lg="5" md="10" sm="12" class="component-card">
+        <FamilyMembers />
+      </b-col>
 
-  <div class='family-home-row'>
-    <div class='component-card'>
-      <FamilyDraw />
-    </div>
-  </div>
-</div>
+      <b-col lg="5" md="10" sm="12" class="component-card">
+        <FamilyRestrictions />
+      </b-col>
+
+      <b-col lg="5" md="10" sm="12" class="component-card">
+        <FamilyDraw />
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
-import FamilyMembers from '@/components/FamilyMembers';
-import FamilyRestrictions from '@/components/FamilyRestrictions';
-import FamilyDraw from '@/components/FamilyDraw'
+import { BContainer, BRow, BCol } from "bootstrap-vue";
+import FamilyMembers from "@/components/FamilyMembers";
+import FamilyRestrictions from "@/components/FamilyRestrictions";
+import FamilyDraw from "@/components/FamilyDraw";
 export default {
   components: {
+    BContainer,
+    BRow,
+    BCol,
     FamilyMembers,
     FamilyRestrictions,
     FamilyDraw,
   },
   created() {
-    this.$store.dispatch('family/loadFamily', this.$route.params.familyId);
+    this.$store.dispatch("family/loadFamily", this.$route.params.familyId);
   },
   transition: {
-    name: 'page-fade',
-    mode: 'out-in'
+    name: "page-fade",
+    mode: "out-in",
   },
-}
+};
 </script>
 
 <style scoped>
-.family-home-row {
-  display: flex;
-  flex-flow: row;
-  align-items: center;
+.row {
   justify-content: center;
 }
 </style>

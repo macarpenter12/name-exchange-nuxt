@@ -5,13 +5,13 @@ input, select {
   max-width: 80%;
   border: 1px solid gray;
   border-radius: 4px;
+  padding-left: 6px;
 }
 
 button {
   align-self: center;
   width: fit-content;
   border-radius: 4px;
-  transition: .2s;
 }
 
 button:hover {
@@ -33,14 +33,19 @@ hr {
 }
 
 .component-card {
-  display: flex;
-  flex-flow: column;
-  min-width: 30%;
   border: 1px solid gray;
   border-radius: 8px;
   padding: 20px;
   margin: 16px;
-  box-shadow: 5px 5px 5px gray;
+  box-shadow: 5px 5px 5px lightgray;
+}
+
+.global-form-group {
+  margin-bottom: 32px;
+}
+
+.global-form-row {
+  margin-bottom: 8px;
 }
 
 /* Transition */
