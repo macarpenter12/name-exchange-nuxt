@@ -8,7 +8,11 @@
           </b-row>
 
           <b-row class="global-form-row">
-            <input v-model="existingFamilyId" style="margin-right: 8px" placeholder="Family Code" />
+            <input
+              v-model="existingFamilyId"
+              style="margin-right: 8px"
+              placeholder="Family Code"
+              @keyup.enter="navigateFamilyPage" />
           </b-row>
           <b-row>
             <nuxt-link :to="`/${existingFamilyId}`"><button>Start</button></nuxt-link>
@@ -53,6 +57,9 @@ export default {
       }).then(() => {
         this.$router.push(`/${this.newFamilyId}`);
       });
+    },
+    navigateFamilyPage() {
+      this.$router.push(`/${this.existingFamilyId}`);
     },
   },
   transition: {
