@@ -1,13 +1,19 @@
 export const state = () => ({
     family: {},
-    members: [],
+    familyMembers: [],
     restrictions: [],
 });
+
+export const getters = {
+    family: (state) => state.family,
+    familyMembers: (state) => state.familyMembers,
+    restrictions: (state) => state.restrictions,
+};
 
 export const mutations = {
     setFamily(state, payload) {
         state.family = payload.family;
-        state.members = payload.members;
+        state.familyMembers = payload.familyMembers;
         state.restrictions = payload.restrictions;
     },
     // commitMember(state, payload) {
@@ -27,7 +33,7 @@ export const actions = {
         let { data } = await this.$axios.get(`/family/${familyId}`);
         context.commit('setFamily', {
             family: data.family,
-            members: data.members,
+            familyMembers: data.members,
             restrictions: data.restrictions,
         });
     },
@@ -48,9 +54,18 @@ export const actions = {
     },
     async addRestriction(context, restrictionData) {
         await this.$axios.post('/restriction', {
-            familyId: restrictionData.familyId,
-            giverId: restrictionData.giverId,
-            receiverId: restrictionData.receiverId,
+            familyId: context.state.family.id,
+            giverId: restrictionData.restriction.giverId,
+            receiverId: restrictionData.restriction.receiverId,
+        });
+        context.dispatch('refreshFamily');
+    },
+    async deleteRestriction(context, restrictionData) {
+        await this.$axios.delete('/restriction', {
+            data: {
+                giverId: restrictionData.restriction.giverId,
+                receiverId: restrictionData.restriction.receiverId,
+            }
         });
         context.dispatch('refreshFamily');
     },
