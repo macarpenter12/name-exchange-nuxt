@@ -2,12 +2,14 @@ export const state = () => ({
     family: {},
     familyMembers: [],
     restrictions: [],
+    assignments: [],
 });
 
 export const getters = {
-    family: (state) => state.family,
-    familyMembers: (state) => state.familyMembers,
-    restrictions: (state) => state.restrictions,
+    family: state => state.family,
+    familyMembers: state => state.familyMembers,
+    restrictions: state => state.restrictions,
+    assignments: state => state.assignments,
 };
 
 export const mutations = {
@@ -15,6 +17,9 @@ export const mutations = {
         state.family = payload.family;
         state.familyMembers = payload.familyMembers;
         state.restrictions = payload.restrictions;
+    },
+    setAssignments(state, payload) {
+        state.assignments = payload;
     },
     // commitMember(state, payload) {
     //   state.members.push({
@@ -29,6 +34,7 @@ export const mutations = {
 };
 
 export const actions = {
+    // clear family when loading home page (i visit '/' after loading a family)
     async loadFamily(context, familyId) {
         let { data } = await this.$axios.get(`/family/${familyId}`);
         context.commit('setFamily', {
@@ -68,5 +74,9 @@ export const actions = {
             }
         });
         context.dispatch('refreshFamily');
+    },
+    async drawNames(context) {
+        const { data } = await this.$axios.post(`/draw/${context.state.family.id}`);
+        context.commit('setAssignments', data);
     },
 }

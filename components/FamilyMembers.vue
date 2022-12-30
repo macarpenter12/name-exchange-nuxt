@@ -3,6 +3,11 @@
     <b-row class="global-form-row">
       <h3>Members:</h3>
     </b-row>
+    <b-row>
+      <ul>
+        <li v-for="member in familyMembers">{{ member.firstName }} {{ member.lastName }}</li>
+      </ul>
+    </b-row>
 
     <div class="global-form-group">
       <b-row v-for="member in family.members" :key="member.id" class="global-form-row">
@@ -42,10 +47,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { BRow, BCol } from 'bootstrap-vue';
+
 export default {
   components: { BRow, BCol, },
-  data: function() {
+  data() {
     return {
       firstName: '',
       lastName: '',
@@ -64,9 +71,10 @@ export default {
     },
   },
   computed: {
-    family() {
-      return this.$store.state.family;
-    }
+    ...mapGetters({
+      family: 'family/family',
+      familyMembers: 'family/familyMembers',
+    }),
   },
 }
 </script>
