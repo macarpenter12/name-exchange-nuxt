@@ -75,8 +75,7 @@ export const actions = {
         });
         context.dispatch('refreshFamily');
     },
-    async drawNames(context) {
-        const { data } = await this.$axios.post(`/draw/${context.state.family.id}`);
-        context.commit('setAssignments', data);
+    async drawNames(context, assignmentData) {
+        context.commit('setAssignments', assignmentData);
     },
 }
